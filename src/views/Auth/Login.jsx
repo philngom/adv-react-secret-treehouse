@@ -41,20 +41,20 @@ export default function Login() {
   return (
     <>
       <h3>You must log in to view the page at {from.pathname}</h3>
-      <form onSubmit={(event) => handleLogin(event)} className={styles.loginForm} onChange={ handleFormChange }>
-        <label>Email</label>
+      <form onSubmit={handleLogin}  onChange={handleFormChange} className={styles.loginForm}>
+        <label htmlFor="email">Email</label>
         <input
           id="email"
           name="email"
           type="email"
-          value={ formState.email }
+          value={formState.email}
         />{' '}
-        <label>Password</label>
+        <label htmlFor="password">Password</label>
         <input
           id="password"
           name="password"
           type="password"
-          value={ formState.password }
+          value={formState.password}
         />
         <button type="submit" aria-label="Sign In">
           Sign in
