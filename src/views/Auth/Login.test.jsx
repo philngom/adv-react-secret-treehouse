@@ -42,18 +42,21 @@ it('should allow the user to log in', async () => {
   const emailField = screen.getByLabelText('Email');
   const passwordField = screen.getByLabelText('Password');
   const submitBtn = screen.getByRole('button', { name: 'Sign In' });
-  
+
   fireEvent.change(emailField, {
     target: { value: 'test@example.com' },
   });
   fireEvent.change(passwordField, {
     target: { value: 'secret' },
   });
-  
+
   expect(passwordField).toHaveValue('secret');
   expect(emailField).toHaveValue('test@example.com');
 
   fireEvent.click(submitBtn);
+
+  await screen.findByText('Welcome to the Secret Treehouse!')
+  screen.debug();
 
   return waitFor(() => {
     screen.getByText('Welcome to the Secret Treehouse!');

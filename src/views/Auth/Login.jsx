@@ -13,7 +13,7 @@ export default function Login() {
 
   // The `from` property of `location.state` gives us
   // the URL to redirect to after logging in.
-  const { from } = location.state || { from: { pathname: '/treehouse' } };
+  const { from } = location.state || { from: { pathname: '/' } };
 
   const handleLogin = (event) => {
 
@@ -26,10 +26,7 @@ export default function Login() {
     // See https://v5.reactrouter.com/web/api/history for the appropriate method to use
     try {
       event.preventDefault();
-      console.log('inhere');
       const loginWasSuccessful = auth.login(formState.email, formState.password);
-      console.log("🚀 ~ file: Login.jsx ~ line 31 ~ handleLogin ~ formState.email, formState.password", formState.email, formState.password)
-      console.log("🚀 ~ file: Login.jsx ~ line 31 ~ handleLogin ~ loginWasSuccessful", loginWasSuccessful)
 
       history.replace(from);
 
@@ -41,12 +38,13 @@ export default function Login() {
   return (
     <>
       <h3>You must log in to view the page at {from.pathname}</h3>
-      <form onSubmit={handleLogin}  onChange={handleFormChange} className={styles.loginForm}>
+      <form onSubmit={handleLogin} className={styles.loginForm}>
         <label htmlFor='email'>Email</label>
         <input
           id="email"
           name="email"
           type="email"
+          onChange={handleFormChange}
           value={formState.email}
         />{' '}
         <label htmlFor='password'>Password</label>
@@ -54,6 +52,7 @@ export default function Login() {
           id="password"
           name="password"
           type="password"
+          onChange={handleFormChange}
           value={formState.password}
         />
         <button type="submit" aria-label="Sign In">
