@@ -42,14 +42,14 @@ export default function Login() {
     <>
       <h3>You must log in to view the page at {from.pathname}</h3>
       <form onSubmit={handleLogin}  onChange={handleFormChange} className={styles.loginForm}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor='email'>Email</label>
         <input
           id="email"
           name="email"
           type="email"
           value={formState.email}
         />{' '}
-        <label htmlFor="password">Password</label>
+        <label htmlFor='password'>Password</label>
         <input
           id="password"
           name="password"

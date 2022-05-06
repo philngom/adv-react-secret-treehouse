@@ -9,7 +9,9 @@ exports[`should allow the user to log in 1`] = `
   <form
     class="loginForm"
   >
-    <label>
+    <label
+      for="email"
+    >
       Email
     </label>
     <input
@@ -19,7 +21,9 @@ exports[`should allow the user to log in 1`] = `
       value=""
     />
      
-    <label>
+    <label
+      for="password"
+    >
       Password
     </label>
     <input
