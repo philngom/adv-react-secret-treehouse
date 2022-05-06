@@ -4,7 +4,7 @@ exports[`should allow the user to log in 1`] = `
 <div>
   <h3>
     You must log in to view the page at 
-    /treehouse
+    /
   </h3>
   <form
     class="loginForm"

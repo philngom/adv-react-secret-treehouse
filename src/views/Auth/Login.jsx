@@ -24,15 +24,17 @@ export default function Login() {
     // from React Router to replace the current URL with the URL
     // we need to redirect to.
     // See https://v5.reactrouter.com/web/api/history for the appropriate method to use
-    try {
-      event.preventDefault();
-      const loginWasSuccessful = auth.login(formState.email, formState.password);
+    event.preventDefault();
+    const loginWasSuccessful = auth.login(formState.email, formState.password);
 
-      history.replace(from);
+    !loginWasSuccessful ? setError('Login Failed. Try again.')
+    : history.replace(from);
+    // try {
 
-    } catch (error) {
-      setError('Login Failed. Try again.')
-    }
+
+    // } catch (error) {
+    //   setError('Login Failed. Try again.')
+    // }
   };
 
   return (
